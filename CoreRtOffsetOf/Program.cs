@@ -15,12 +15,27 @@ namespace CoreRtOffsetOf
         [DllImport("CoreRtHint")]
         public static extern void Hint(StructA a);
 
-        public static void Main(string[] args)
+        public static unsafe void Main(string[] args)
         {
             if (args.Length == Int32.MaxValue)
             {
                 Hint(default);
             }
+
+            try
+            { Console.WriteLine(Marshal.SizeOf<StructA>()); }
+            catch (Exception ex)
+            { Console.Error.WriteLine(ex); }
+
+            try
+            { Console.WriteLine(Marshal.SizeOf(typeof(StructA))); }
+            catch (Exception ex)
+            { Console.Error.WriteLine(ex); }
+
+            try
+            { Console.WriteLine(sizeof(StructA)); }
+            catch (Exception ex)
+            { Console.Error.WriteLine(ex); }
 
             try
             { Console.WriteLine(Marshal.OffsetOf<StructA>(nameof(StructA.y))); }
