@@ -10,27 +10,16 @@ namespace CoreRtOffsetOf
         public int y;
     }
 
-    [StructLayout(LayoutKind.Sequential)]
-    public struct StructB
-    {
-        public int x;
-        public int y;
-    }
-
     public static class Program
     {
         [DllImport("CoreRtHint")]
-        public static extern void TestA(StructA a);
-
-        [DllImport("CoreRtHint")]
-        public static extern void TestB(StructB b);
+        public static extern void Hint(StructA a);
 
         public static void Main(string[] args)
         {
             if (args.Length == Int32.MaxValue)
             {
-                TestA(default);
-                TestB(default);
+                Hint(default);
             }
 
             try
@@ -40,11 +29,6 @@ namespace CoreRtOffsetOf
 
             try
             { Console.WriteLine(Marshal.OffsetOf(typeof(StructA), nameof(StructA.y))); }
-            catch (Exception ex)
-            { Console.Error.WriteLine(ex); }
-
-            try
-            { Console.WriteLine(Marshal.OffsetOf(typeof(StructB), nameof(StructB.y))); }
             catch (Exception ex)
             { Console.Error.WriteLine(ex); }
 

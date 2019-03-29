@@ -3,7 +3,6 @@
   <Application>
     <Assembly Name="CoreRtOffsetOf">
       <Type Name="CoreRtOffsetOf.StructA" Dynamic="Required All" MarshalStructure="Required All" />
-      <Type Name="CoreRtOffsetOf.StructB" Dynamic="Required All" MarshalStructure="Required All" />
     </Assembly>
   </Application>
 </Directives>
