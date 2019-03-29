@@ -2,7 +2,11 @@
 <Directives>
   <Application>
     <Assembly Name="CoreRtOffsetOf">
-      <Type Name="CoreRtOffsetOf.StructA" Dynamic="Required All" MarshalStructure="Required All" />
+      <!--
+      The following items don't seem to have an impact on the success or failure of OffsetOf on either struct.
+      <Type Name="CoreRtOffsetOf.BlittableStruct" Dynamic="Required All" MarshalStructure="Required All" />
+      <Type Name="CoreRtOffsetOf.MarshaledStruct" Dynamic="Required All" MarshalStructure="Required All" />
+      -->
     </Assembly>
   </Application>
 </Directives>
